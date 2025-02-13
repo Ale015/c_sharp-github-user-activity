@@ -2,9 +2,10 @@
 using System.Threading.Tasks;
 using GitHubUserActivity.Services;
 using GitHubUserActivity.Models;
+using GitHubUserActivity.Utils;
 
-            // Solicitar o nome de usuário ao usuário
-            Console.Write("Digite o nome de usuário do GitHub: ");
+// Solicitar o nome de usuário ao usuário
+Console.Write("Digite o nome de usuário do GitHub: ");
             string username = Console.ReadLine();
 
             // Instanciar o GitHubService
@@ -27,8 +28,8 @@ using GitHubUserActivity.Models;
                 Console.WriteLine($"Perfil: {usuario.HtmlUrl}");
                 Console.WriteLine($"Localização: {usuario.Location ?? "Não informada"}");
                 Console.WriteLine($"Repositórios URL: {usuario.ReposUrl}");
-                Console.WriteLine($"Criado em: {usuario.CreatedAt:dd/MM/yyyy}");
-                Console.WriteLine($"Última atualização: {usuario.UpdatedAt:dd/MM/yyyy}");
+                Console.WriteLine($"Criado em: {AdjustTimeZone.FormatDate(usuario.CreatedAt)}");
+                Console.WriteLine($"Última atualização: {AdjustTimeZone.FormatDate(usuario.UpdatedAt)}");
             }
             else
             {
@@ -49,8 +50,8 @@ using GitHubUserActivity.Models;
                 Console.WriteLine($"Linguagem: {repo.Language}");
                 Console.WriteLine($"Estrelas: {repo.StargazersCount}");
                 Console.WriteLine($"Forks: {repo.ForksCount}");
-                Console.WriteLine($"Criado em: {repo.CreatedAt}");
-                Console.WriteLine($"Atualizado em: {repo.UpdatedAt}");
+                Console.WriteLine($"Criado em: {AdjustTimeZone.FormatDate(repo.CreatedAt)}");
+                Console.WriteLine($"Atualizado em: {AdjustTimeZone.FormatDate(repo.UpdatedAt)}");
                 Console.WriteLine("--------------");
                 }
 

@@ -39,8 +39,8 @@ namespace GitHubUserActivity.Models
     public string ReposUrl { get; set; }
 
     [JsonProperty("created_at")]
-    public DateTimeOffset CreatedAt { get; set; }
+    public DateTime CreatedAt { get; set; }
 
     [JsonProperty("updated_at")]
-    public DateTimeOffset UpdatedAt { get; set; }
+    public DateTime UpdatedAt { get; set; }
 }}
